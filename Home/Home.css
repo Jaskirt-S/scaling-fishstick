@@ -1,0 +1,15 @@
+li.nav_opt{
+    display: inline;
+    padding:10px ;
+    border-style:solid;
+    border-radius: 15px;
+    
+}
+li.nav_opt:hover{
+    border-color: white;
+
+}
+a.nav_opt_link{
+    text-decoration: none;
+    color: inherit;
+}
