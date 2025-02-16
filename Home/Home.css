@@ -1,15 +1,22 @@
-li.nav_opt{
+.nav_opt{
     display: inline;
-    padding:10px ;
+    padding-left:20px ;
+    padding-right:20px ;
     border-style:solid;
     border-radius: 15px;
-    
+    min-width: 260px;
 }
-li.nav_opt:hover{
+.nav_opt:hover{
     border-color: white;
 
 }
 a.nav_opt_link{
     text-decoration: none;
     color: inherit;
+}
+section{
+    border:2px solid black
+}
+.sectio:scroll{
+
 }
