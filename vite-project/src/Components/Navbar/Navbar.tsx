@@ -1,0 +1,47 @@
+import "./Navbar.css";
+import { Link } from "react-router-dom";
+function Navbar() {
+  return (
+    <>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "space-between",
+          backgroundColor:"rgb(79,114,182)"
+        }}
+      >
+        <p style={{ fontSize: 70, margin: 0, fontWeight: "bolder" }}>
+          B A S J S{" "}
+        </p>
+        <h6 style={{ marginLeft: "-270px", marginTop: 53 }}>estd.1915</h6>
+        <p />
+        <nav
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            width: 600,
+          }}
+        >
+          <Link to="./Pages/Home.tsx" className="nav_opt_link">
+            <p className="nav_opt">Home</p>
+          </Link>
+          <Link to="/Events/events.html" className="nav_opt_link">
+            <p className="nav_opt">Events </p>
+          </Link>
+          <Link to="/Calendar/Calender.html" className="nav_opt_link">
+            <p className="nav_opt">Calender</p>
+          </Link>
+          <Link to="/Login/Login.html" className="nav_opt_link">
+            <p className="nav_opt">Admissions</p>
+          </Link>
+          <Link to="/Login" className="nav_opt_link">
+            <p className="nav_opt">LOGIN</p>
+          </Link>
+        </nav>
+      </div>
+    </>
+  );
+}
+export default Navbar;

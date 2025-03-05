@@ -1,0 +1,20 @@
+
+.nav_opt{
+    display: inline;
+    padding-left:20px ;
+    padding-right:20px ;
+    border-bottom-style:solid;
+    border-bottom-color: black;
+    border-radius: 5px;
+    border-width: 3px;
+    width: 360px;
+    color: white;
+  }
+  .nav_opt:hover{
+    border-bottom-color: white;
+    
+  }
+  a.nav_opt_link{
+    text-decoration: none;
+    color: inherit;
+  }
