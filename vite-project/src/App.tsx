@@ -3,6 +3,7 @@ import Navbar from "./Components/Navbar/Navbar.tsx";
 import Footer from "./Components/Footer/Footer.tsx";
 import Events from "./Pages/Events/Events.tsx";
 import Login from "./Pages/Login/Login.tsx";
+import Connection from "./Components/connection.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 function App() {
   const router = createBrowserRouter([
@@ -21,6 +22,7 @@ function App() {
   ]);
   return (
     <div>
+      <Connection></Connection>
       <Navbar></Navbar>
       <RouterProvider router={router} />
       <Footer></Footer>
