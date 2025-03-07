@@ -1,10 +1,9 @@
 .Container{
     background-color: rgb(79,114,182);
     height: 150px;
-   display: flex;
-   justify-content: space-around;
-   position: absolute;
-   bottom: 0px; 
+    display: flex;
+    justify-content: space-around;
+    bottom: 0px; 
 }
 ul{
     list-style-type: none;

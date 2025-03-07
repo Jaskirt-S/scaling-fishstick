@@ -1,8 +1,11 @@
 import './Home.css'
+import Navbar from '../../Components/Navbar/Navbar';
+import Footer from '../../Components/Footer/Footer';
 function Home()
 {
     return (
-    <><div style={{margin:0}}>
+    <><Navbar></Navbar>
+    <div style={{margin:0}}>
       
       <section style={{ 
         width: "100%",
@@ -49,6 +52,7 @@ function Home()
         <div className='feature'><img className='imgg' /><h3>Sample text</h3></div>
       </section>
       </div>
+      <Footer></Footer>
     </>)
 }
 export default Home;

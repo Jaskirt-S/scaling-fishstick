@@ -1,4 +1,7 @@
 import React from "react";
+import './Login.css'
+import Navbar from '../../Components/Navbar/Navbar';
+import Footer from '../../Components/Footer/Footer';
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input, Flex } from "antd";
 
@@ -8,6 +11,9 @@ const Login: React.FC = () => {
   };
 
   return (
+    <>
+    <Navbar></Navbar>
+    <div className="Cointainer">
     <Form
       name="login"
       initialValues={{ remember: true }}
@@ -42,10 +48,12 @@ const Login: React.FC = () => {
       <Form.Item>
         <Button block type="primary" htmlType="submit">
           Log in
-        </Button>
-        or <a href="">Register now!</a>
+        </Button> 
       </Form.Item>
     </Form>
+    </div>
+    <Footer></Footer>
+    </>
   );
 };
 

@@ -24,19 +24,19 @@ function Navbar() {
             width: 600,
           }}
         >
-          <Link to="./Pages/Home.tsx" className="nav_opt_link">
+          <Link to="/home" className="nav_opt_link">
             <p className="nav_opt">Home</p>
           </Link>
-          <Link to="/Events/events.html" className="nav_opt_link">
+          <Link to="/home" className="nav_opt_link">
             <p className="nav_opt">Events </p>
           </Link>
-          <Link to="/Calendar/Calender.html" className="nav_opt_link">
+          <Link to="/home" className="nav_opt_link">
             <p className="nav_opt">Calender</p>
           </Link>
-          <Link to="/Login/Login.html" className="nav_opt_link">
+          <Link to="/home" className="nav_opt_link">
             <p className="nav_opt">Admissions</p>
           </Link>
-          <Link to="/Login" className="nav_opt_link">
+          <Link to="/login" className="nav_opt_link">
             <p className="nav_opt">LOGIN</p>
           </Link>
         </nav>
