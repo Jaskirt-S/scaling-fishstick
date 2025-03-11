@@ -33,7 +33,7 @@ function Navbar() {
           <Link to="/home" className="nav_opt_link">
             <p className="nav_opt">Calender</p>
           </Link>
-          <Link to="/home" className="nav_opt_link">
+          <Link to="/Register" className="nav_opt_link">
             <p className="nav_opt">Admissions</p>
           </Link>
           <Link to="/login" className="nav_opt_link">

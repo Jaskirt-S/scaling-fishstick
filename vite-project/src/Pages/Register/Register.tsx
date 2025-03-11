@@ -1,68 +1,29 @@
-import { Button, Checkbox, Form, Input } from 'antd';
-import type { FormProps } from 'antd/es/form';
+import axios from "axios";
+import { useState, useEffect } from "react";
+import Navbar from "../../Components/Navbar/Navbar";
+import Footer from "../../Components/Footer/Footer";
 
-const onFinish: FormProps['onFinish'] = (values) => {
-  console.log('Success:', values);
+const Register = () => {
+  const [data, setData] = useState("");
 
+  const getData = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/getData");
+      setData(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+  useEffect(() => {
+    getData();
+  }, []);
+  return (
+    <div>
+      <Navbar></Navbar>
+      <div>{data}</div>
+      <div>no hello</div>
+      <Footer></Footer>
+    </div>
+  );
 };
-const onFinishFailed: FormProps['onFinishFailed'] = (errorInfo) => {
-  console.log('Failed:', errorInfo);
-  axios.post("http://localhost:5173/"),values
-};
-const Register = () => (
-  <Form
-    name="basic"
-    labelCol={{
-      span: 8,
-    }}
-    wrapperCol={{
-      span: 16,
-    }}
-    style={{
-      maxWidth: 600,
-    }}
-    initialValues={{
-      remember: true,
-    }}
-    onFinish={onFinish}
-    onFinishFailed={onFinishFailed}
-    autoComplete="off"
-  >
-    <Form.Item
-      label="Username"
-      name="username"
-      rules={[
-        {
-          required: true,
-          message: 'Please input your username!',
-        },
-      ]}
-    >
-      <Input />
-    </Form.Item>
-
-    <Form.Item
-      label="Password"
-      name="password"
-      rules={[
-        {
-          required: true,
-          message: 'Please input your password!',
-        },
-      ]}
-    >
-      <Input.Password />
-    </Form.Item>
-
-    <Form.Item name="remember" valuePropName="checked" label={null}>
-      <Checkbox>Remember me</Checkbox>
-    </Form.Item>
-
-    <Form.Item label={null}>
-      <Button type="primary" htmlType="submit">
-        Submit
-      </Button>
-    </Form.Item>
-  </Form>
-);
 export default Register;
