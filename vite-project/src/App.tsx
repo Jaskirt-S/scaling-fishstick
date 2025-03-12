@@ -2,6 +2,7 @@ import Home from "./Pages/Home/Home.tsx";
 import Events from "./Pages/Events/Events.tsx";
 import Login from "./Pages/Login/Login.tsx";
 import Register from "./Pages/Register/Register.tsx";
+import Admission from "./Pages/Admission/Admission.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path:"/Register",
     element:<Register/>
+  },
+  {
+    path:"/Admission",
+    element:<Admission/>
   }
 ]);
 function App() {

@@ -30,10 +30,10 @@ function Navbar() {
           <Link to="/home" className="nav_opt_link">
             <p className="nav_opt">Events </p>
           </Link>
-          <Link to="/home" className="nav_opt_link">
+          <a href="./src/assets/Holidays.pdf" target="_blank" className="nav_opt_link">
             <p className="nav_opt">Calender</p>
-          </Link>
-          <Link to="/Register" className="nav_opt_link">
+          </a>
+          <Link to="/Admission" className="nav_opt_link">
             <p className="nav_opt">Admissions</p>
           </Link>
           <Link to="/login" className="nav_opt_link">

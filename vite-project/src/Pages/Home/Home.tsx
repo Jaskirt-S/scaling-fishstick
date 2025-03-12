@@ -4,7 +4,8 @@ import Footer from '../../Components/Footer/Footer';
 function Home()
 {
     return (
-    <><Navbar></Navbar>
+    <>
+    <Navbar></Navbar>
     <div style={{margin:0}}>
       
       <section style={{ 
@@ -22,7 +23,7 @@ function Home()
           }}
         />
       </section>
-      <div style={{display:'flex',justifyContent:'center'}}><h1>What we Belive In</h1></div>
+      <div style={{display:'flex',justifyContent:'center'}}><h1>Why Choose Us</h1></div>
       <section
       style={{
         display:'grid',
@@ -31,12 +32,12 @@ function Home()
         gridTemplateRows: "200px 200px",
         rowGap:0
       }}>
-        <div className='feature'><img className='imgg' /><h3>Sample text</h3></div>
-        <div className='feature'><img className='imgg' /><h3>Sample text</h3></div>
-        <div className='feature'><img className='imgg' /><h3>Sample text</h3></div>
-        <div className='feature'><img className='imgg' /><h3>Sample text</h3></div>
-        <div className='feature'><img className='imgg' /><h3>Sample text</h3></div>
-        <div className='feature'><img className='imgg' /><h3>Sample text</h3></div>
+        <div className='feature'><img className='imgg' /><h3>Very Affordable Fees</h3></div>
+        <div className='feature'><img className='imgg' /><h3>Food provided free of cost</h3></div>
+        <div className='feature'><img className='imgg' /><h3>Textbooks are Provided free of cost</h3></div>
+        <div className='feature'><img className='imgg' /><h3>Religious Teaching</h3></div>
+        <div className='feature'><img className='imgg' /><h3>Experienced Staff</h3></div>
+        <div className='feature'><img className='imgg' /><h3>Excellent Sports Faclities</h3></div>
       </section>
       <div style={{display:'flex',justifyContent:'center'}}><h1>Events</h1></div>
       <section

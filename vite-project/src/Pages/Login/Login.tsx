@@ -3,7 +3,7 @@ import "./Login.css";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import { Button, Checkbox, Form, Input, Flex } from "antd";
+import { Button,Form, Input, Flex } from "antd";
 import "@ant-design/v5-patch-for-react-19";
 
 const Login = () => {
