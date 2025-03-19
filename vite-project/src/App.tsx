@@ -3,6 +3,7 @@ import Events from "./Pages/Events/Events.tsx";
 import Login from "./Pages/Login/Login.tsx";
 import Register from "./Pages/Register/Register.tsx";
 import Admission from "./Pages/Admission/Admission.tsx";
+import Dashboard from "./Pages/Dashboard/Dashboard.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 const router = createBrowserRouter([
   {
@@ -28,7 +29,11 @@ const router = createBrowserRouter([
   {
     path:"/Admission",
     element:<Admission/>
-  }
+  },
+  {
+    path:"/Dashboard",
+    element:<Dashboard/>
+  },
 ]);
 function App() {
   return (<RouterProvider router={router}/>);

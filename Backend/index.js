@@ -3,6 +3,7 @@ const chalk = require ("chalk");
 const express =require ("express");
 const backend = express();
 const Loginroute = require('./routes/Login')
+const Admission = require('./routes/Admission')
 const cors = require('cors');
 
 backend.use(cors({
@@ -36,3 +37,4 @@ backend.get("/getData",(req,res)=>{
 
 
 backend.use("/login", Loginroute);
+backend.use("/Admission", Admission)

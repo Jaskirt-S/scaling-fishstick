@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
-// const bodyParser = require('body-parser');
-// router.use(bodyParser.json());
 const users = [
-    {username: 'jaskirt5sidhu', password: 'Password@123' }
+    {username: 'jaskirt5sidhu', password: '123' }
 ];
 router.post("/", (req, res) => {
     const { username, password } = req.body;

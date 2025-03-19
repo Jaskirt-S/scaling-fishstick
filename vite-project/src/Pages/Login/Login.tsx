@@ -2,32 +2,37 @@ import { useState } from "react";
 import "./Login.css";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
+import Loading from "../../Components/Loading/Loading";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import { Button,Form, Input, Flex } from "antd";
+import { Button, Form, Input, Flex } from "antd";
 import "@ant-design/v5-patch-for-react-19";
+import { toast } from "react-toastify";
 
 const Login = () => {
-  const [message, setMessage] = useState("");
-
+  
+  const [isLoading, setIsLoading] = useState(false);
   const onFinish = async (values: any) => {
-    setMessage(""); // Reset message
-
+      setIsLoading(true);
     try {
       const response = await fetch("http://localhost:5000/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
       });
-
-      const data = await response.json();
+      // const data = await response.json();
 
       if (response.ok) {
-        setMessage("✅ Login successful!");
+        toast.success("Login sucessful");
+        setTimeout(() => {
+          window.location.href = "/dashboard";
+        }, 3000);
       } else {
-        setMessage("❌ Invalid credentials");
+        toast.error("Invalid credentials");
+        setIsLoading(false);
       }
     } catch (error) {
-      setMessage("❌ Server error. Please try again.");
+      toast.error("❌ Server error. Please try again.");
+      setIsLoading(false);
     }
   };
 
@@ -35,6 +40,9 @@ const Login = () => {
     <>
       <Navbar />
       <div className="cointainer">
+      {isLoading ? (
+          <Loading />
+        ) : (
         <Form
           name="login"
           initialValues={{ remember: true }}
@@ -70,9 +78,12 @@ const Login = () => {
               Log in
             </Button>
           </Form.Item>
-          {message && <p style={{ color: "red" }}>{message}</p>}
-        </Form>
+          
+          
+        </Form>)}
+        
       </div>
+      
       <Footer />
     </>
   );

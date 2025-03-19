@@ -11,10 +11,10 @@ function Navbar() {
           backgroundColor:"rgb(79,114,182)"
         }}
       >
-        <p style={{ fontSize: 70, margin: 0, fontWeight: "bolder" }}>
+        <p className="basjs" style={{ fontSize: 70, margin: 0, fontWeight: "bolder" }}>
           B A S J S{" "}
         </p>
-        <h6 style={{ marginLeft: "-270px", marginTop: 53 }}>estd.1915</h6>
+        <h6 style={{ marginLeft: "-255px", marginTop: 53 }}>estd.1915</h6>
         <p />
         <nav
           style={{
