@@ -4,7 +4,9 @@ const express =require ("express");
 const backend = express();
 const Loginroute = require('./routes/Login')
 const Admission = require('./routes/Admission')
+const Register = require('./routes/Register')
 const cors = require('cors');
+const Server=require("./mongoserver")
 
 backend.use(cors({
   origin: "*",
@@ -15,7 +17,7 @@ backend.use(express.json());
 
 
 
-mongoose.connect("mongodb+srv://jaskiratsidhu57865786:5uMKXHAGxmQS7lEI@bickend.zabsb.mongodb.net/")
+mongoose.connect(Server)
 .then(()=>
   {
     console.log(`${chalk.green("v")} ${chalk.blue("MongoDB Connected!")}`)
@@ -27,8 +29,7 @@ mongoose.connect("mongodb+srv://jaskiratsidhu57865786:5uMKXHAGxmQS7lEI@bickend.z
   
   })
   .catch((err) => console.log(err));
-
-
+  
 
 
 backend.get("/getData",(req,res)=>{
@@ -37,4 +38,5 @@ backend.get("/getData",(req,res)=>{
 
 
 backend.use("/login", Loginroute);
-backend.use("/Admission", Admission)
+backend.use("/Admission", Admission);
+backend.use("/Register",Register);

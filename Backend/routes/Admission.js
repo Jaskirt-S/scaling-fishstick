@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+const Admission =require("../Models/admissioninfo")
 let submittedForms=[];
 router.post("/", (req, res) => {
     const formData = Object.values(req.body);
