@@ -5,11 +5,13 @@ const backend = express();
 const Loginroute = require('./routes/Login')
 const Admission = require('./routes/Admission')
 const Register = require('./routes/Register')
+const exxample=require('./routes/exxample')
 const cors = require('cors');
 const Server=require("./mongoserver")
 
+
 backend.use(cors({
-  origin: "*",
+  origin: "http://localhost:5173" ,
   methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
 })
 );
@@ -40,3 +42,4 @@ backend.get("/getData",(req,res)=>{
 backend.use("/login", Loginroute);
 backend.use("/Admission", Admission);
 backend.use("/Register",Register);
+backend.use("/getex",exxample)

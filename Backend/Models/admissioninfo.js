@@ -2,10 +2,12 @@ const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
   name: { type: String, required: true,},
-  mobileNo: { type: Number, required: true }, 
+  Mno: { type: Number, required: true }, 
   Age:{type:Number,required:true},
-  class:{type:String,required:true},
+  Class:{type:String,required:true},
   remarks:{type:String,required:false}
+},{
+  timestamps:true
 });
 
 const Admission = mongoose.model("admissions", UserSchema);
