@@ -12,6 +12,6 @@
 .info
 {
     width: 65%;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     height: 700px;
 }

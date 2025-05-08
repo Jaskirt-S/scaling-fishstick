@@ -5,17 +5,22 @@ const backend = express();
 const Loginroute = require('./routes/Login')
 const Admission = require('./routes/Admission')
 const Register = require('./routes/Register')
-const exxample=require('./routes/exxample')
+const Fpassword =require('./routes/forgotpassword')
+const Leave = require("./routes/Leave")
+const Verify=require("./routes/verify")
+const Event=require('./routes/addEvent')
 const cors = require('cors');
 const Server=require("./mongoserver")
 
 
 backend.use(cors({
-  origin: "http://localhost:5173" ,
-  methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
-})
-);
+  origin: 'http://localhost:5173',
+  credentials: true,
+  methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"]
+}));
+
 backend.use(express.json());
+
 
 
 
@@ -38,8 +43,16 @@ backend.get("/getData",(req,res)=>{
   res.send("Hello");
 })
 
-
+// Route middlewares
 backend.use("/login", Loginroute);
 backend.use("/Admission", Admission);
-backend.use("/Register",Register);
-backend.use("/getex",exxample)
+backend.use("/register", Register);
+backend.use("/forgot-password", Fpassword);
+backend.use("/leave", Leave);
+backend.use("/verify", Verify);
+backend.use("/event", Event);
+
+// Fallback route
+backend.use((req, res) => {
+  res.status(404).json({ message: "Route not found" });
+});

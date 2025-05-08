@@ -11,9 +11,11 @@ function Navbar() {
           backgroundColor:"rgb(79,114,182)"
         }}
       >
+        <Link className="H">
         <p className="basjs" style={{ fontSize: 70, margin: 0, fontWeight: "bolder",}}>
           B A S J S
-        </p>
+          </p>
+          </Link>
         <h6 style={{ marginLeft: "-255px", marginTop: 53 }}>estd.1915</h6>
         <p />
         <nav
@@ -27,7 +29,7 @@ function Navbar() {
           <Link to="/home" className="nav_opt_link">
             <p className="nav_opt">Home</p>
           </Link>
-          <Link to="/home" className="nav_opt_link">
+          <Link to="/events" className="nav_opt_link">
             <p className="nav_opt">Events </p>
           </Link>
           <a href="./src/assets/Holidays.pdf" target="_blank" className="nav_opt_link">

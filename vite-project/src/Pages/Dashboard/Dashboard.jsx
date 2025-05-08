@@ -11,40 +11,28 @@ const formItemLayout = {labelCol: {xs: {span: 24,},sm: {span: 6,},},wrapperCol: 
 const Dashboard = () => {
   const [form] = Form.useForm();
   const variant = Form.useWatch('variant', form);
-  const onFinish = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/leave", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
-      });
-    }
-      catch (error) {
-        toast.error("❌ Server error. Please try again.");
-      }
-      
+  const token = localStorage.getItem("token");
+  const onFinish = async (values) => {
+    console.log(values)
+    values.fromDate = values.fromDate.format("YYYY-MM-DD");
+    values.toDate = values.toDate.format("YYYY-MM-DD");
 
+    try {
+      const response = await axios.post("http://localhost:5000/leave", values,{
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+     toast.success("Leave submitted")  
+    } catch (error) {
+      toast.error("❌ Server error. Please try again.");
+    }
   }
-  function fetchData() {
-    instance.get('http://localhost:5000/getex')
-        .then(response => {
-           toast.success("success:"+response.data)
-        })
-        .catch(error => {
-          toast.error(" backend ")
-            toast.error(error.response.data)
-        });
-}
   return (
     <>
    <Navbar/>
    <div className="body">
     <div className="info">
-    <button onClick={fetchData}>Hello</button>
-    <h1>Name <h6>example</h6></h1>
-    <h1>Name <h6>example</h6></h1>
-    <h1>Name <h6>example</h6></h1>
-    <h1>Name <h6>example</h6></h1>
     
     </div>
     <div className="leave">
@@ -56,14 +44,19 @@ const Dashboard = () => {
       style={{maxWidth: 600,}}
       onFinish={onFinish}
     >
-      <Form.Item label="Leave Dates"
-        name="Leave Dates"
-        rules={[{required: true,message: 'Please input!',},]}>
-        <RangePicker />
-      </Form.Item>
+      <Form.Item 
+      label="From"
+      name="fromDate"
+      >
+          <DatePicker />
+        </Form.Item>
+        <Form.Item label="To"
+        name="toDate">
+          <DatePicker />
+        </Form.Item>
       <Form.Item
         label="Reason"
-        name="Reason"
+        name="reason"
         rules={[{required: true,message: 'Please input!',},]}>
         <Input.TextArea />
       </Form.Item>
@@ -81,10 +74,11 @@ const Dashboard = () => {
       </Form.Item>
     </Form>
     </div>
-   </div>
-   <Footer/>
-    </>
+  </div>
+  <Footer/>
+  </>
   )
 }
+
 
 export default Dashboard

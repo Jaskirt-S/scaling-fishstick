@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import "./Login.css";
-import Navbar from "../../Components/Navbar/Navbar";
-import Footer from "../../Components/Footer/Footer";
 import Loading from "../../Components/Loading/Loading";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Form, Input, Flex } from "antd";
@@ -10,35 +11,74 @@ import { toast } from "react-toastify";
 import axios from "axios"
 
 const Login = () =>  { 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) return;
+
+    axios.get("http://localhost:5000/verify", {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then(() => {
+        navigate('/dashboard', { replace: true });
+      })
+      .catch(() => {
+        localStorage.removeItem("token");
+      });
+  }, []);
+  
   
   const [isLoading, setIsLoading] = useState(false);
   const onFinish = async (values) => {
     setIsLoading(true);
     
-    try {
-      
-      const { data } = await axios.post("http://localhost:5000/login", values);
+    try 
+    { 
+      const res = await axios.post('http://localhost:5000/login', values, {
+        withCredentials: true
+      });
+      console.log("1")
       toast.success("Login successful");
-      console.log(data)
-      setTimeout(() => {
-        window.location.href = "/dashboard";
-      }, 3000);
+      console.log("1")
+      const {message,token,role} = res.data;
+      console.log("1")
+      localStorage.setItem("token", token);
+      localStorage.setItem("role", role)
+      console.log("1")
+      console.log(role)
+      if(role=="user")
+      {
+        setTimeout(() => {
+            window.location.href = "/dashboard";
+          }, 3000);
+      }
+      else if (role=="admin")
+        {
+          setTimeout(() => {
+            window.location.href = "http://localhost:5174";
+          }, 3000);
+        }
+        else if (role=="superAdmin")
+          {
+            setTimeout(() => {
+              window.location.href = "http://localhost:5174";
+            }, 3000);
+          }
+    
     } catch (error) {
       if (error.response) {
         toast.error(`Invalid credentials: ${error.response.data.message}`);
       } else {
         toast.error("❌ Server error. Please try again.");
+        setIsLoading(false);
       }
-    } finally {
-      setIsLoading(false);
     }
-    
   };
   
 
   return (
     <>
-      <Navbar />
       <div className="cointainer">
       {isLoading ? (
           <Loading />
@@ -67,10 +107,7 @@ const Login = () =>  {
           </Form.Item>
           <Form.Item>
             <Flex justify="space-between" align="center">
-              {/* <Form.Item name="remember" valuePropName="checked" noStyle>
-                <Checkbox>Remember me</Checkbox>
-              </Form.Item> */}
-              <a href="#">Forgot password</a>
+              <Link to="/fpassword">Forgot password</Link>
             </Flex>
           </Form.Item>
           <Form.Item>
@@ -83,9 +120,6 @@ const Login = () =>  {
         </Form>)}
         
       </div>
-
-      
-      <Footer />
     </>
   );
 };

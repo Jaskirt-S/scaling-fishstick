@@ -1,5 +1,6 @@
 import { toast } from "react-toastify";
 import {Button,Form,Input,} from 'antd';
+import axios from "axios"
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import './Register.css'
@@ -13,29 +14,25 @@ const tailFormItemLayout =
 };
 const Register = () => {
   const [form] = Form.useForm();
-  const onFinish = async () => {
+  const onFinish = async (values) => {
+    console.log("🚀 onFinish called with:", values);
     try {
-      const response = await fetch("http://localhost:5000/Register", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(values),
-      });
-  
-      const data = await response.json();
-  
-      if (!response.ok) {
-          toast.error(`Error: ${data.message}`);
-          
+      await axios.post("http://localhost:5000/register", values);
+      console.log(values)
+      toast.success("Registered successfully");
+    
+      setTimeout(() => {
+        window.location.href = "/login";
+      }, 3000);
+    } catch (error) {
+      console.error("❌ Axios error:", error);
+      if (error.response) {
+        toast.error(`Error: ${error.response.data.message}`);
+      } else {
+        toast.error("Network error. Please try again.");
       }
-      else{
-        toast.success("Registered sucessfully")
-        setTimeout(() => {
-          window.location.href = "/login";
-        }, 3000);
-      }
-  } catch (error) {
-      toast.error("Network error. Please try again.");
-  }
+    }
+    
 };
   return (
     <div>

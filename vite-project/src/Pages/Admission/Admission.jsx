@@ -1,6 +1,4 @@
-import "./Admission.css";
-import Navbar from "../../Components/Navbar/Navbar";
-import Footer from "../../Components/Footer/Footer";
+import "./Admission.css"
 import { Button, Form, Input, InputNumber } from "antd";
 import "@ant-design/v5-patch-for-react-19";
 import { toast } from "react-toastify";
@@ -58,7 +56,6 @@ const Admission = () => {
   };
   return (
     <>
-      <Navbar />
       <div className="Cointainer">
         <h1>Student Info for Admission</h1>
         <div className="coin">
@@ -126,7 +123,6 @@ const Admission = () => {
           </Form>
         </div>
       </div>
-      <Footer />
     </>
   );
 };
