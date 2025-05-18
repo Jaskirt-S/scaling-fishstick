@@ -9,15 +9,18 @@ const Fpassword =require('./routes/forgotpassword')
 const Leave = require("./routes/Leave")
 const Verify=require("./routes/verify")
 const Event=require('./routes/addEvent')
+const Revent=require('./routes/Revent')
+const Evento =require('./routes/Evento')
 const cors = require('cors');
 const Server=require("./mongoserver")
 
 
 backend.use(cors({
-  origin: 'http://localhost:5173',
+  origin: ['http://localhost:5173', 'http://localhost:5174'],
   credentials: true,
   methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"]
 }));
+
 
 backend.use(express.json());
 
@@ -51,8 +54,11 @@ backend.use("/forgot-password", Fpassword);
 backend.use("/leave", Leave);
 backend.use("/verify", Verify);
 backend.use("/event", Event);
-
-// Fallback route
+backend.use("/revent", Revent);
+backend.use("/evento", Evento);
+backend.use("/getData", (req, res) => {
+  res.send("Hello");
+})
 backend.use((req, res) => {
   res.status(404).json({ message: "Route not found" });
 });

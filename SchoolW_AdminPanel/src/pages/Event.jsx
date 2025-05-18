@@ -74,8 +74,6 @@ const Event = () => {
             </button>
           </Upload>
         </Form.Item>
-        
-        
           <Button type="primary" htmlType="submit" className='border-2 ml-[80px]'>Submit</Button>
         
       </Form>

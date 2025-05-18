@@ -10,9 +10,8 @@
     width: 360px;
     color: white;
   }
-  .nav_opt:hover{
-    border-bottom-color: white;
-    
+ .nav_opt:hover {
+    background-color: rgb(62, 88, 141);
   }
   a.nav_opt_link{
     text-decoration: none;

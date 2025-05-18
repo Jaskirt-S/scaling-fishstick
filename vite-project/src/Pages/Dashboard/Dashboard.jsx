@@ -30,7 +30,6 @@ const Dashboard = () => {
   }
   return (
     <>
-   <Navbar/>
    <div className="body">
     <div className="info">
     
@@ -75,7 +74,6 @@ const Dashboard = () => {
     </Form>
     </div>
   </div>
-  <Footer/>
   </>
   )
 }

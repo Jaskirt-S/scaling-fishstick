@@ -8,14 +8,17 @@ function Navbar() {
           width: "100%",
           display: "flex",
           justifyContent: "space-between",
-          backgroundColor:"rgb(79,114,182)"
+          backgroundColor: "rgb(79,114,182)",
         }}
       >
         <Link className="H">
-        <p className="basjs" style={{ fontSize: 70, margin: 0, fontWeight: "bolder",}}>
-          B A S J S
+          <p
+            className="basjs"
+            style={{ fontSize: 70, margin: 0, fontWeight: "bolder" }}
+          >
+            B A S J S
           </p>
-          </Link>
+        </Link>
         <h6 style={{ marginLeft: "-255px", marginTop: 53 }}>estd.1915</h6>
         <p />
         <nav
@@ -32,7 +35,11 @@ function Navbar() {
           <Link to="/events" className="nav_opt_link">
             <p className="nav_opt">Events </p>
           </Link>
-          <a href="./src/assets/Holidays.pdf" target="_blank" className="nav_opt_link">
+          <a
+            href="./src/assets/Holidays.pdf"
+            target="_blank"
+            className="nav_opt_link"
+          >
             <p className="nav_opt">Calender</p>
           </a>
           <Link to="/Admission" className="nav_opt_link">

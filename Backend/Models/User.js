@@ -2,11 +2,11 @@
 
 const UserSchema = new mongoose.Schema({
   username: { type: String,},
-  password: { type: String,}, 
-  role: { type: String,enum: ["user", "admin", "superAdmin"], default: "user" },
+  password: { type: String,},
   name: {String},
   class: {String},
   rollNo:{Number},
+  role: { type: String,enum: ["user", "admin", "superAdmin"], default: "user" },
   leaves: [
     {
       fromDate: Date,

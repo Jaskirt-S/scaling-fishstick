@@ -1,0 +1,11 @@
+.event-container {
+    display: grid;
+    gap: 0px;
+    place-items: center;
+    /* background-color:rgb(79,114,182); */
+    grid-template-columns: 33% 33% 33%;
+    height: auto;
+    width: 95%;
+    margin: 35px;
+    border-radius: 20px;
+}
